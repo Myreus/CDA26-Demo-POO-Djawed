@@ -74,11 +74,16 @@ abstract class AbstractCharacter {
         $this->health -= $damage;
 
         //2. Afficher un message
-        echo($this->name." prend ".$damage." dégâts.");
+        echo($this->name." prend ".$damage." dégâts.\n");
 
         //3. Vérifie si le personnage meurt
+        $this->checkIfDead();
+    }
+    public function checkIfDead():bool{
         if($this->health <= 0){
-            echo($this->name." meurt.Paix à son âme.");
+            echo($this->name." meurt.Paix à son âme.\n");
+            return true;
         }
+        return false;
     }
 }
